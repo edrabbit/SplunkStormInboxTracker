@@ -12,8 +12,8 @@ import urllib2
 STORM_ACCESS_TOKEN = 'Your SplunkStorm Access Token'
 STORM_PROJECT_ID = 'Your SplunkStorm Project ID'
 
-CHECK_DELAY = 60 # delay between checks in seconds
-EMAIL_ADDRESS = 'youremail@server.com' # for identifying results in Storm
+CHECK_DELAY = 60  # delay between checks in seconds
+EMAIL_ADDRESS = 'youremail@server.com'  # for identifying results in Storm
 SERVER = 'imap.server.com'
 SERVER_PORT = '993'
 USERNAME = 'yourusername'
@@ -69,7 +69,7 @@ def check_mail(email_address, mail_host, mail_port, username, password):
     log = StormLog(STORM_ACCESS_TOKEN, STORM_PROJECT_ID)
     try:
         result = log.send(event, sourcetype='generic_single_line',
-            host=mail_host, source=mail_host)
+                          host=mail_host, source=mail_host)
         return result
     except httplib.BadStatusLine:
         # If we fail to send the log, just drop it
